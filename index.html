@@ -17,7 +17,6 @@
             justify-content: flex-start;
             height: 100vh;
         }
-
         .container {
             width: 80%;
             max-width: 400px;
@@ -27,17 +26,14 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             margin-bottom: 20px;
         }
-
         h1 {
             text-align: center;
             margin-bottom: 20px;
             color: #64ffda;
         }
-
         .signal-settings {
             margin-bottom: 20px;
         }
-
         .toggle-switch {
             display: flex;
             justify-content: space-around;
@@ -45,7 +41,6 @@
             padding: 5px;
             border-radius: 5px;
         }
-
         .toggle-switch button {
             background-color: transparent;
             border: none;
@@ -54,17 +49,14 @@
             cursor: pointer;
             border-radius: 5px;
         }
-
         .toggle-switch button.active {
             background-color: #64ffda;
             color: #0a192f;
         }
-
         .select-wrapper {
             margin-bottom: 15px;
             position: relative;
         }
-
         select {
             width: 100%;
             padding: 10px;
@@ -76,7 +68,6 @@
             -webkit-appearance: none;
             cursor: pointer;
         }
-
         .select-wrapper::after {
             content: '▼';
             position: absolute;
@@ -86,7 +77,6 @@
             pointer-events: none;
             color: #fff;
         }
-
         .button {
             display: block;
             width: 100%;
@@ -100,14 +90,12 @@
             text-decoration: none;
             margin-bottom: 10px;
         }
-
         .signal-info {
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 15px;
             text-align: center;
         }
-
         .signal-header {
             display: flex;
             flex-direction: column;
@@ -115,16 +103,13 @@
             align-items: center;
             margin-bottom: 10px;
         }
-
         .signal-header svg {
             fill: #64ffda;
         }
-
         .currency-pair {
             font-size: 1.2em;
             margin-bottom: 10px;
         }
-
         .sell-button {
             color: #fff;
             padding: 10px 20px;
@@ -132,58 +117,46 @@
             display: inline-block;
             margin-bottom: 10px;
         }
-
         .sell-button.wait {
             background-color: rgba(0, 0, 0, 0.4);
         }
-
         .sell-button.sell {
             background-color: #e45858;
         }
-
         .sell-button.buy {
             background-color: #58e458;
         }
-
         .remaining-time {
             margin-bottom: 10px;
         }
-
         .remaining-time p {
             margin: 5px 0;
         }
-
         .remaining-time .time {
             font-size: 1.5em;
         }
-
         .chart-info {
             padding: 15px;
             border-radius: 10px;
         }
-
         .chart-info h2 {
             font-size: 1.1em;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
-
         .chart-info h2 svg {
             fill: #64ffda;
             margin-right: 5px;
         }
-
         .chart-details {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
         }
-
         .accuracy {
             text-align: right;
         }
-
         .chart-image {
             width: 100%;
             height: 150px;
@@ -195,10 +168,8 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>BullxAI | Analytics Bot</h1>
-
         <div class="signal-settings">
             <p>Signal Settings</p>
             <div class="toggle-switch">
@@ -206,14 +177,12 @@
                 <button class="otc-button" data-mode="otc">OTC</button>
             </div>
         </div>
-
         <div class="select-wrapper">
             <label for="currencies">Currencies</label>
             <select id="currencies" name="currencies">
                 <!-- Opciones de divisas se agregarán aquí dinámicamente -->
             </select>
         </div>
-
         <div class="select-wrapper">
             <label for="timeframe">Timeframe</label>
             <select id="timeframe" name="timeframe">
@@ -222,30 +191,24 @@
                 <option>M5</option>
             </select>
         </div>
-
         <a href="#" class="button" id="get-signal-button">Get Signal</a>
     </div>
-
     <div class="container">
         <div class="signal-info">
             <div class="signal-header">
                 <h2>Signal</h2>
                 <div id="reloj">00:00:00</div>
             </div>
-
             <div class="currency-pair" id="currency-pair">AUD/CAD OTC</div>
-
             <div class="sell-button wait" id="sell-buy">WAIT <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
             </svg></div>
-
             <div class="remaining-time">
                 <p>Remaining</p>
                 <p class="time" id="countdown">0</p>
             </div>
             <hr style="border-top: 1px solid #787878;">
         </div>
-
         <div class="chart-info">
             <h2>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
@@ -266,11 +229,10 @@
                 </div>
             </div>
             <div class="chart-image" id="chart-image">
-                <img id="candle-chart" src="chart1.jpg" alt="Gráfico de Velas" style="width: 100%; height: 100%; object-fit: contain; display: none;">
+                <img id="candle-chart" src="Chart1.jpg" alt="Gráfico de Velas" style="width: 100%; height: 100%; object-fit: contain; display: none;">
             </div>
         </div>
     </div>
-
     <script>
         const standardButton = document.querySelector('.standard-button');
         const otcButton = document.querySelector('.otc-button');
@@ -283,24 +245,20 @@
         const chartImage = document.getElementById('chart-image');
         const timeframeDisplay = document.querySelector('.chart-details .timeframe');
         const candleChart = document.getElementById('candle-chart');
-
         const standardCurrencies = [
             "USD/MXN", "EUR/USD", "GBP/USD", "USD/JPY", "AUD/USD",
             "USD/CAD", "NZD/USD", "EUR/GBP", "EUR/JPY", "GBP/JPY",
             "AUD/JPY", "CAD/JPY", "CHF/JPY", "EUR/AUD", "EUR/CAD",
             "EUR/CHF", "GBP/AUD", "GBP/CAD", "GBP/CHF", "USD/CHF"
         ];
-
         const otcCurrencies = [
             "USD/MXN OTC", "EUR/USD OTC", "GBP/USD OTC", "USD/JPY OTC", "AUD/USD OTC",
             "USD/CAD OTC", "NZD/USD OTC", "EUR/GBP OTC", "EUR/JPY OTC", "GBP/JPY OTC",
             "AUD/JPY OTC", "CAD/JPY OTC", "CHF/JPY OTC", "EUR/AUD OTC", "EUR/CAD OTC",
             "EUR/CHF OTC", "GBP/AUD OTC", "GBP/CAD OTC", "GBP/CHF OTC", "USD/CHF OTC"
         ];
-
         let intervalId;
         let isStandard = true;
-
         function createCurrencyOptions(currencies) {
             currenciesSelect.innerHTML = '';
             currencies.forEach(currency => {
@@ -309,79 +267,60 @@
                 option.textContent = currency;
                 currenciesSelect.appendChild(option);
             });
-
             sellBuyElement.textContent = "WAIT";
             sellBuyElement.className = "sell-button wait";
         }
-
         standardButton.addEventListener('click', function() {
             isStandard = true;
             createCurrencyOptions(standardCurrencies);
             standardButton.classList.add('active');
             otcButton.classList.remove('active');
         });
-
         otcButton.addEventListener('click', function() {
             isStandard = false;
             createCurrencyOptions(otcCurrencies);
             otcButton.classList.add('active');
             standardButton.classList.remove('active');
         });
-
         createCurrencyOptions(standardCurrencies);
-
         getSignalButton.addEventListener('click', function() {
             const selectedCurrency = currenciesSelect.value;
             currencyPairElement.textContent = selectedCurrency;
-
             sellBuyElement.textContent = "WAIT";
             sellBuyElement.className = "sell-button wait";
-
             candleChart.style.display = 'none';
-
             let countdown = 0;
             clearInterval(intervalId);
-
             intervalId = setInterval(() => {
                 countdown++;
                 countdownElement.textContent = countdown;
-
                 if (countdown === 4) {
                     clearInterval(intervalId);
                     const prediction = Math.random() < 0.5 ? "SELL" : "BUY";
                     sellBuyElement.textContent = prediction;
                     sellBuyElement.className = `sell-button ${prediction.toLowerCase()}`;
-
                     candleChart.style.display = 'block';
                     changeChartImage();
                 }
             }, 1000);
-
             const selectedTimeframe = timeframeSelect.value;
             timeframeDisplay.innerHTML = `Timeframe<br>${selectedTimeframe}`;
         });
-
         function actualizarReloj() {
             const ahora = new Date();
             let horas = ahora.getHours();
             let minutos = ahora.getMinutes();
             let segundos = ahora.getSeconds();
-
             horas = String(horas).padStart(2, '0');
             minutos = String(minutos).padStart(2, '0');
             segundos = String(segundos).padStart(2, '0');
-
             const horaFormateada = `${horas}:${minutos}:${segundos}`;
-
             document.getElementById('reloj').textContent = horaFormateada;
         }
-
         setInterval(actualizarReloj, 1000);
-
         actualizarReloj();
-
         function changeChartImage() {
-            const imagePaths = ["chart1.jpg", "chart2.jpg", "chart3.jpg"];
+            const imagePaths = ["Chart1.jpg", "Chart2.jpg", "Chart3.jpg"];
             const randomIndex = Math.floor(Math.random() * imagePaths.length);
             const selectedImage = imagePaths[randomIndex];
             candleChart.src = selectedImage;
